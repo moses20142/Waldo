@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0a4d2e"/>
+  <rect width="512" height="512" rx="112" fill="url(#grad)"/>
+  <defs>
+    <radialGradient id="grad" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#1a7a4a"/>
+      <stop offset="100%" stop-color="#053a1f"/>
+    </radialGradient>
+  </defs>
+  <!-- Palm leaf shapes -->
+  <path d="M256 380 Q220 300 180 260 Q200 265 230 290 Q240 260 256 240 Q272 260 282 290 Q312 265 332 260 Q292 300 256 380Z" fill="#f0c042" opacity="0.25"/>
+  <!-- GP letters -->
+  <text x="256" y="310" font-family="Georgia,serif" font-size="180" font-weight="700"
+        text-anchor="middle" fill="#f0c042" letter-spacing="-8">GP</text>
+  <!-- Subtle ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#f0c042" stroke-width="6" opacity="0.2"/>
+</svg>

@@ -121,7 +121,7 @@ async function findAccount(key) {
 
 async function setSession(account, isNew = false) {
   const safe = { id: account.key, name: account.name || '', method: account.method, ts: Date.now() };
-  sessionStorage.setItem('gp.session', JSON.stringify(safe));
+  localStorage.setItem('gp.session', JSON.stringify(safe));
   if (!window.GP_DB) return;
 
   window.GP_DB.logSecurityEvent('login_success', { method: account.method, key: account.key });

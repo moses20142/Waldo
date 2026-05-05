@@ -98,10 +98,10 @@ function getFingerprint() {
 
 /* ----- Session helpers ----- */
 function getSession() {
-  try { return JSON.parse(sessionStorage.getItem('gp.session') || 'null'); }
+  try { return JSON.parse(localStorage.getItem('gp.session') || 'null'); }
   catch { return null; }
 }
-function clearSession() { sessionStorage.removeItem('gp.session'); }
+function clearSession() { localStorage.removeItem('gp.session'); }
 
 /* ====================================================================
    Public API

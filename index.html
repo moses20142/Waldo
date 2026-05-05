@@ -13,6 +13,16 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="index, follow" />
 
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GoldenPalm" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="GoldenPalm" />
+  <meta name="msapplication-TileColor" content="#0a4d2e" />
+
   <title>GoldenPalm — Premium Nigerian Palm Oil</title>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
@@ -403,5 +413,6 @@
   <script src="database/db.js"></script>
   <script src="services.js"></script>
   <script src="script.js"></script>
+  <script src="sw-register.js"></script>
 </body>
 </html>

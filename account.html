@@ -12,6 +12,14 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex" />
 
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GoldenPalm" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
   <title>Account · GoldenPalm</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -216,6 +224,7 @@
   <script src="database/db.js"></script>
   <script src="services.js"></script>
   <script src="account.js"></script>
+  <script src="sw-register.js"></script>
 
   <!-- Invisible reCAPTCHA target for Firebase phone auth -->
   <div id="recaptcha-container" aria-hidden="true"></div>

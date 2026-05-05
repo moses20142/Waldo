@@ -1693,6 +1693,71 @@ p { color: var(--text-soft); }
 .toast-error { background: #b3401b !important; }
 .toast-error::before { background: #fff !important; color: #b3401b !important; content: '!' !important; }
 
+/* ====================================================================
+   PWA Install banners
+   ==================================================================== */
+#pwaBanner {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 1100;
+  background: var(--surface-2);
+  border: 1.5px solid var(--gold-500);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+  max-width: 360px;
+  width: calc(100% - 32px);
+  opacity: 0;
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+#pwaBanner.pwa-show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+#pwaBanner img { width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0; }
+.pwa-text { flex: 1; min-width: 0; }
+.pwa-text strong { display: block; font-size: .95rem; color: var(--text); }
+.pwa-text span   { font-size: .78rem; color: var(--muted); }
+.pwa-btn-install {
+  background: var(--gold-500); color: var(--green-900);
+  border: 0; border-radius: 999px;
+  padding: 8px 18px; font-weight: 800; font-size: .85rem;
+  cursor: pointer; font-family: inherit; white-space: nowrap;
+  flex-shrink: 0;
+}
+.pwa-btn-install:hover { background: var(--gold-400); }
+.pwa-btn-dismiss {
+  background: transparent; border: 0; color: var(--muted);
+  font-size: 1rem; cursor: pointer; padding: 6px;
+  border-radius: 999px; flex-shrink: 0;
+}
+.pwa-btn-dismiss:hover { color: var(--text); }
+
+/* iOS Safari instruction banner */
+#iosBanner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--surface-2);
+  border-top: 1.5px solid var(--gold-500);
+  padding: 16px 20px 28px;
+  text-align: center;
+  z-index: 1100;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.5);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity .3s ease, transform .3s ease;
+}
+#iosBanner.pwa-show { opacity: 1; transform: translateY(0); }
+#iosBanner strong { display: block; font-size: 1rem; margin-bottom: 8px; color: var(--text); }
+#iosBanner p { font-size: .88rem; color: var(--text-soft); line-height: 1.55; }
+.ios-share { font-size: 1.1em; }
+.ios-arrow { font-size: 1.4rem; color: var(--gold-500); margin-top: 10px; animation: bounce .8s infinite alternate; }
+.ios-dismiss { position: absolute; top: 10px; right: 14px; }
+@keyframes bounce { to { transform: translateY(6px); } }
+
 @media (max-width: 520px) {
   .user-name-text { display: none; }
   .rewards-inner { flex-direction: column; align-items: stretch; gap: 10px; }
