@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <title>Admin · GoldenPalm</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- PIN lock screen -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-card">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true">GP</span>
+        <span class="logo-text">GoldenPalm Admin</span>
+      </div>
+      <h1>Admin Access</h1>
+      <p>Enter your 6-digit admin PIN to continue.</p>
+      <form id="pinForm" novalidate>
+        <input type="password" id="pinInput" inputmode="numeric" maxlength="6"
+               pattern="[0-9]{6}" autocomplete="current-password"
+               placeholder="••••••" aria-label="6-digit admin PIN" required />
+        <button type="submit" class="btn btn-primary">Unlock</button>
+        <p class="pin-error" id="pinError" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="pin-hint">Default PIN: <code>123456</code> — change it in <code>admin.js</code></p>
+    </div>
+  </div>
+
+  <!-- Admin shell (hidden until authenticated) -->
+  <div id="adminShell" hidden>
+    <aside class="sidebar" role="navigation" aria-label="Admin navigation">
+      <div class="sidebar-logo">
+        <span class="logo-mark" aria-hidden="true">GP</span>
+        <div>
+          <span class="logo-text">GoldenPalm</span>
+          <span style="font-size:0.7rem;color:var(--muted);display:block">Admin Dashboard</span>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-panel="overview">
+          <span aria-hidden="true">◉</span> Overview
+        </button>
+        <button class="nav-item" data-panel="visitors">
+          <span aria-hidden="true">◎</span> Visitors
+        </button>
+        <button class="nav-item" data-panel="users">
+          <span aria-hidden="true">◑</span> Users
+        </button>
+        <button class="nav-item" data-panel="orders">
+          <span aria-hidden="true">▣</span> Orders
+        </button>
+        <button class="nav-item" data-panel="points">
+          <span aria-hidden="true">★</span> Points
+        </button>
+        <button class="nav-item" data-panel="messages">
+          <span aria-hidden="true">✉</span> Messages
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-link">← Back to site</a>
+        <button class="sidebar-link" id="adminLogout">Lock screen</button>
+      </div>
+    </aside>
+
+    <main class="admin-main" id="main">
+
+      <!-- Overview panel -->
+      <section class="panel" id="panel-overview">
+        <h2>Overview</h2>
+        <div class="stat-grid" id="overviewStats"></div>
+        <h3 style="margin-top:2rem">7-day visitor chart</h3>
+        <div class="chart-wrap" id="visitorChart" aria-label="Visitor chart for the last 7 days"></div>
+      </section>
+
+      <!-- Visitors panel -->
+      <section class="panel hidden" id="panel-visitors">
+        <h2>Daily Visitors</h2>
+        <p class="panel-sub">Unique visitors per day (anonymous fingerprint).</p>
+        <div id="visitorsTable"></div>
+      </section>
+
+      <!-- Users panel -->
+      <section class="panel hidden" id="panel-users">
+        <h2>Registered Users</h2>
+        <p class="panel-sub">All accounts created on this device.</p>
+        <div id="usersTable"></div>
+      </section>
+
+      <!-- Orders panel -->
+      <section class="panel hidden" id="panel-orders">
+        <h2>Orders</h2>
+        <p class="panel-sub">Cart checkouts submitted by customers.</p>
+        <div id="ordersTable"></div>
+      </section>
+
+      <!-- Points panel -->
+      <section class="panel hidden" id="panel-points">
+        <h2>Loyalty Points</h2>
+        <p class="panel-sub">Rewards outstanding across all user accounts.</p>
+        <div class="stat-grid" id="pointsStats"></div>
+        <div id="pointsTable" style="margin-top:1.5rem"></div>
+      </section>
+
+      <!-- Messages panel -->
+      <section class="panel hidden" id="panel-messages">
+        <h2>Contact Messages</h2>
+        <p class="panel-sub">Submissions from the homepage contact form.</p>
+        <div id="messagesTable"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="database/db.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
