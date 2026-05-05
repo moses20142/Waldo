@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoldenPalm by GM Akibor Limited — premium Nigerian palm oil. Pay in Naira, US Dollars, or BEP20 crypto." />
+  <meta name="theme-color" content="#0a4d2e" />
+
+  <!-- Security headers (defense-in-depth; the real headers come from vercel.json) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https://images.unsplash.com https://*.googleusercontent.com data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdn.jsdelivr.net https://www.gstatic.com https://www.google.com; connect-src 'self' https://*.supabase.co https://api.emailjs.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; font-src 'self' data:; frame-src https://*.firebaseapp.com https://www.google.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="index, follow" />
+
+  <title>GoldenPalm — Premium Nigerian Palm Oil</title>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="GoldenPalm home">
+        <span class="logo-mark" aria-hidden="true">GP</span>
+        <span class="logo-stack">
+          <span class="logo-text">GoldenPalm</span>
+          <span class="logo-tag">by GM Akibor Limited</span>
+        </span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#payments">Payments</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="account.html" class="nav-cta">Sign in</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart" aria-haspopup="dialog" aria-controls="cartDrawer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="cartCount" aria-live="polite" aria-atomic="true">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-img"
+           src="https://images.unsplash.com/photo-1639805855968-22081aef8d1f?w=1800&q=80&auto=format&fit=crop"
+           alt="Oil palms lining a red-earth road in a Nigerian plantation at golden hour" />
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Premium Nigerian Palm Oil</p>
+        <h1 id="hero-title">Pure palm oil,<br /><span class="accent">honestly made.</span></h1>
+        <p class="hero-sub">
+          Cold-pressed on our family plantation and shipped worldwide.
+          Pay in Naira, US Dollars, or BEP20 crypto.
+        </p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">Shop products</a>
+          <a href="account.html" class="btn btn-ghost">Sign in</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Rooted in Nigeria. Trusted worldwide.</h2>
+          <p>
+            GoldenPalm is the flagship label of GM Akibor Limited — a family
+            producer milling fresh fruit bunches within hours of harvest. The
+            result is a deep-red, nutrient-rich oil with the unmistakable
+            aroma of authentic Nigerian cooking.
+          </p>
+          <ul class="check-list">
+            <li>Cold-pressed, chemical-free extraction</li>
+            <li>Traceable from seed to shipment</li>
+            <li>RSPO &amp; NAFDAC certified</li>
+          </ul>
+        </div>
+        <img class="about-img"
+             src="https://images.unsplash.com/photo-1602918222794-91046e45cfe7?w=900&q=80&auto=format&fit=crop"
+             alt="Cluster of fresh ripe red palm fruit ready for milling" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section products" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Products</p>
+          <h2 id="products-title">A range for every kitchen</h2>
+        </div>
+        <div class="card-grid">
+          <article class="product-card"
+                   data-id="red"
+                   data-name="Red Palm Oil"
+                   data-price="8.50"
+                   data-img="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300&q=80&auto=format&fit=crop">
+            <img class="product-img"
+                 src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=700&q=80&auto=format&fit=crop"
+                 alt="Bottle of unrefined red palm oil" loading="lazy" />
+            <div class="product-body">
+              <h3>Red Palm Oil</h3>
+              <p>Unrefined, cold-pressed. Rich in carotenes and vitamin E.</p>
+              <span class="price">$8.50 / L</span>
+              <button class="btn btn-add" type="button" data-add aria-label="Add Red Palm Oil to cart">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card"
+                   data-id="refined"
+                   data-name="Refined Palm Oil"
+                   data-price="6.20"
+                   data-img="https://images.unsplash.com/photo-1602918222794-91046e45cfe7?w=300&q=80&auto=format&fit=crop">
+            <img class="product-img"
+                 src="https://images.unsplash.com/photo-1602918222794-91046e45cfe7?w=700&q=80&auto=format&fit=crop"
+                 alt="Fresh red palm fruit clusters" loading="lazy" />
+            <div class="product-body">
+              <h3>Refined Palm Oil</h3>
+              <p>Neutral flavor, perfect for frying, baking and food production.</p>
+              <span class="price">$6.20 / L</span>
+              <button class="btn btn-add" type="button" data-add aria-label="Add Refined Palm Oil to cart">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card"
+                   data-id="kernel"
+                   data-name="Palm Kernel Oil"
+                   data-price="9.10"
+                   data-img="https://images.unsplash.com/photo-1604302882991-b75900e23890?w=300&q=80&auto=format&fit=crop">
+            <img class="product-img"
+                 src="https://images.unsplash.com/photo-1604302882991-b75900e23890?w=700&q=80&auto=format&fit=crop"
+                 alt="Tall oil palm trees against a clear blue sky" loading="lazy" />
+            <div class="product-body">
+              <h3>Palm Kernel Oil</h3>
+              <p>Pressed from the kernel — ideal for confectionery and cosmetics.</p>
+              <span class="price">$9.10 / L</span>
+              <button class="btn btn-add" type="button" data-add aria-label="Add Palm Kernel Oil to cart">Add to cart</button>
+            </div>
+          </article>
+          <article class="product-card"
+                   data-id="organic"
+                   data-name="Organic Palm Oil"
+                   data-price="11.00"
+                   data-img="https://images.unsplash.com/photo-1639805855046-818d9159387b?w=300&q=80&auto=format&fit=crop">
+            <img class="product-img"
+                 src="https://images.unsplash.com/photo-1639805855046-818d9159387b?w=700&q=80&auto=format&fit=crop"
+                 alt="Sunlit road through an oil palm plantation" loading="lazy" />
+            <div class="product-body">
+              <h3>Organic Palm Oil</h3>
+              <p>Certified organic, sustainably harvested from smallholder farms.</p>
+              <span class="price">$11.00 / L</span>
+              <button class="btn btn-add" type="button" data-add aria-label="Add Organic Palm Oil to cart">Add to cart</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section payments" id="payments" aria-labelledby="payments-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Payments</p>
+          <h2 id="payments-title">Pay your way</h2>
+          <p class="section-sub">Naira bank, US Dollar account, or BEP20 crypto — that's it. Simple and secure.</p>
+        </div>
+
+        <div class="phish-banner" role="note" aria-label="Anti-phishing notice">
+          <span class="phish-icon" aria-hidden="true">🛡</span>
+          <div>
+            <strong>Stay safe:</strong> Always confirm the URL is
+            <code>goldenpalm.gmakibor.com</code> before paying. We will
+            <em>never</em> ask for your password, PIN, OTP, or seed phrase.
+            Verify the wallet/bank details below match what we send by email.
+          </div>
+        </div>
+
+        <div class="pay-grid pay-grid-2">
+          <article class="bank-card" aria-labelledby="bank-ngn">
+            <header>
+              <span class="bank-flag" aria-hidden="true">🇳🇬</span>
+              <div>
+                <h3 id="bank-ngn">Naira Account</h3>
+                <p>Direct bank transfer · NGN</p>
+              </div>
+            </header>
+            <dl class="bank-rows">
+              <div><dt>Bank</dt><dd>United Bank for Africa (UBA)</dd></div>
+              <div><dt>Account name</dt><dd>GM Akibor Limited</dd></div>
+              <div>
+                <dt>Account number</dt>
+                <dd>
+                  <code class="copyable" id="acct-ngn">2087072301</code>
+                  <button class="copy-btn" type="button" data-copy="acct-ngn" aria-label="Copy Naira account number">Copy</button>
+                </dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="bank-card" aria-labelledby="bank-usd">
+            <header>
+              <span class="bank-flag" aria-hidden="true">🇺🇸</span>
+              <div>
+                <h3 id="bank-usd">US Dollar Account</h3>
+                <p>Domiciliary account · USD</p>
+              </div>
+            </header>
+            <dl class="bank-rows">
+              <div><dt>Bank</dt><dd>Zenith Bank (Domiciliary)</dd></div>
+              <div><dt>Account name</dt><dd>GM Akibor Limited</dd></div>
+              <div>
+                <dt>Account number</dt>
+                <dd>
+                  <code class="copyable" id="acct-usd">5070000000</code>
+                  <button class="copy-btn" type="button" data-copy="acct-usd" aria-label="Copy USD account number">Copy</button>
+                </dd>
+              </div>
+              <div>
+                <dt>SWIFT</dt>
+                <dd>
+                  <code class="copyable" id="acct-swift">ZEIBNGLA</code>
+                  <button class="copy-btn" type="button" data-copy="acct-swift" aria-label="Copy SWIFT code">Copy</button>
+                </dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <article class="crypto-card" aria-labelledby="crypto-title">
+          <header>
+            <span class="crypto-mark" aria-hidden="true">◈</span>
+            <div>
+              <h3 id="crypto-title">BEP20 Crypto Wallet</h3>
+              <p>Binance Smart Chain (BSC) only — BNB, USDT, USDC, BTCB, ETH, BUSD</p>
+            </div>
+            <span class="net-tag" title="Binance Smart Chain network">BEP20</span>
+          </header>
+
+          <div class="wallet-row">
+            <span class="wallet-label">Wallet address</span>
+            <code class="copyable wallet-addr" id="bep20-addr">0xdec2de4fccaf656cfa4e2ccf563dd6131c378427</code>
+            <button class="copy-btn copy-btn-strong" type="button" data-copy="bep20-addr" aria-label="Copy BEP20 wallet address">Copy address</button>
+          </div>
+
+          <ul class="coin-list" aria-label="Supported BEP20 tokens">
+            <li><span class="coin-tag t-orange">BNB</span> Binance Coin</li>
+            <li><span class="coin-tag t-green">USDT</span> Tether (BEP20)</li>
+            <li><span class="coin-tag t-blue">USDC</span> USD Coin (BEP20)</li>
+            <li><span class="coin-tag t-orange">BTCB</span> Bitcoin pegged (BEP20)</li>
+            <li><span class="coin-tag t-purple">ETH</span> Ethereum (BEP20)</li>
+            <li><span class="coin-tag t-green">BUSD</span> Binance USD</li>
+          </ul>
+
+          <p class="crypto-warn" role="alert">
+            <strong>⚠ BEP20 network only.</strong> Sending tokens on
+            ERC20, TRC20, or any other network will result in lost funds.
+            Always send a small test amount first.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let's grow together</h2>
+          <p>Reach out for samples, wholesale pricing or partnership inquiries.</p>
+          <ul class="contact-info">
+            <li><strong>Email</strong> <a href="mailto:akibormoses@gmail.com">akibormoses@gmail.com</a></li>
+            <li><strong>Phone</strong> <a href="tel:+2340913557188">0913 557 188</a></li>
+            <li><strong>Office</strong> Lagos, Nigeria</li>
+            <li><strong>Account</strong>
+              <a href="account.html">Sign in / Create account</a>
+            </li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate autocomplete="on">
+          <!-- Honeypot: hidden from humans; bots fill it in -->
+          <div class="honeypot" aria-hidden="true">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <input type="hidden" name="form_started" id="formStarted" value="" />
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required autocomplete="name" maxlength="80" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" maxlength="120" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4" required maxlength="2000"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> GoldenPalm · GM Akibor Limited</span>
+      <span class="footer-links">
+        <a href="#about">About</a>
+        <a href="#payments">Payments</a>
+        <a href="account.html">Sign in</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Floating cart slip (SportyBet-style) -->
+  <button class="cart-slip" id="cartSlip" hidden aria-label="Open cart">
+    <span class="slip-badge" id="slipCount">0</span>
+    <span class="slip-text">
+      <span class="slip-label">Cart</span>
+      <span class="slip-total" id="slipTotal">$0.00</span>
+    </span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- Cart drawer (Jumia-style) -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+    <header class="drawer-head">
+      <h2 id="drawerTitle">Your cart <span class="drawer-count" id="drawerCount">(0)</span></h2>
+      <button class="drawer-close" id="drawerClose" aria-label="Close cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </header>
+
+    <div class="drawer-body" id="drawerBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <p>Your cart is empty</p>
+        <span>Add a product to get started.</span>
+      </div>
+      <ul class="cart-items" id="cartItems"></ul>
+    </div>
+
+    <footer class="drawer-foot" id="drawerFoot" hidden>
+      <div class="reward-redeem" id="rewardRedeem" hidden>
+        <div class="reward-redeem-head">
+          <span>You have <strong id="rwAvailable">0</strong> pts (worth <strong id="rwAvailableDollars">$0.00</strong>)</span>
+          <button class="btn-link" id="rwApplyBtn" type="button">Apply max</button>
+        </div>
+        <p class="reward-redeem-applied" id="rwApplied" hidden></p>
+      </div>
+      <div class="drawer-totals">
+        <span>Subtotal</span>
+        <strong id="drawerTotal">$0.00</strong>
+      </div>
+      <div class="drawer-totals" id="discountRow" hidden>
+        <span>Reward discount</span>
+        <strong class="discount-amt" id="drawerDiscount">−$0.00</strong>
+      </div>
+      <div class="drawer-totals drawer-grand" id="grandRow" hidden>
+        <span>Total</span>
+        <strong id="drawerGrand">$0.00</strong>
+      </div>
+      <p class="drawer-note">Shipping and taxes calculated at checkout.</p>
+      <a href="account.html" class="btn btn-primary btn-checkout">
+        Checkout
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      <button class="btn-link" id="cartClear" type="button">Clear cart</button>
+    </footer>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="database/db.js"></script>
+  <script src="services.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

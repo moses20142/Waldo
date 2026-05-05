@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoldenPalm — sign in or create an account with email, phone, or Apple ID." />
+  <meta name="theme-color" content="#0a4d2e" />
+
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https://images.unsplash.com https://*.googleusercontent.com data:; style-src 'self' 'unsafe-inline' https://accounts.google.com; script-src 'self' https://appleid.cdn-apple.com https://accounts.google.com https://cdn.jsdelivr.net https://www.gstatic.com https://www.google.com; connect-src 'self' https://*.supabase.co https://appleid.apple.com https://accounts.google.com https://api.emailjs.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; font-src 'self' data:; frame-src https://appleid.apple.com https://accounts.google.com https://*.firebaseapp.com https://www.google.com; form-action 'self' https://appleid.apple.com https://accounts.google.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noindex" />
+
+  <title>Account · GoldenPalm</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-body">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo" aria-label="GoldenPalm home">
+        <span class="logo-mark" aria-hidden="true">GP</span>
+        <span class="logo-stack">
+          <span class="logo-text">GoldenPalm</span>
+          <span class="logo-tag">by GM Akibor Limited</span>
+        </span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#payments">Payments</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="auth-page">
+    <div class="auth-shell">
+      <aside class="auth-promo" aria-hidden="true">
+        <h2>Welcome to GoldenPalm.</h2>
+        <p>Track orders, save bank &amp; crypto preferences, and check out faster.</p>
+        <ul>
+          <li>Order history &amp; reorder in one click</li>
+          <li>Saved Naira, USD &amp; BEP20 payment details</li>
+          <li>Priority support from the GM Akibor team</li>
+        </ul>
+      </aside>
+
+      <section class="auth-card" aria-labelledby="auth-title">
+        <header class="auth-head">
+          <h1 id="auth-title">Create your account</h1>
+          <p class="auth-sub" id="authSub">It takes less than a minute.</p>
+        </header>
+
+        <div class="auth-mode" role="tablist" aria-label="Sign in or sign up">
+          <button class="auth-mode-btn active" type="button" role="tab" aria-selected="true" data-mode="signup">Create account</button>
+          <button class="auth-mode-btn" type="button" role="tab" aria-selected="false" data-mode="signin">Sign in</button>
+        </div>
+
+        <div class="auth-method" role="tablist" aria-label="Sign-up method">
+          <button class="method-btn active" type="button" role="tab" aria-selected="true" data-method="email">
+            <span aria-hidden="true">✉</span> Email
+          </button>
+          <button class="method-btn" type="button" role="tab" aria-selected="false" data-method="phone">
+            <span aria-hidden="true">📱</span> Phone
+          </button>
+          <button class="method-btn" type="button" role="tab" aria-selected="false" data-method="google">
+            <svg viewBox="0 0 18 18" width="16" height="16" aria-hidden="true">
+              <path fill="#EA4335" d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46 1.08 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"/>
+              <path fill="#4285F4" d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+              <path fill="#FBBC05" d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9 9 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"/>
+            </svg>
+            Google
+          </button>
+          <button class="method-btn" type="button" role="tab" aria-selected="false" data-method="apple">
+            <span aria-hidden="true"></span> Apple ID
+          </button>
+        </div>
+
+        <!-- ========== EMAIL ========== -->
+        <form class="auth-form" id="emailForm" novalidate autocomplete="on">
+          <div class="honeypot" aria-hidden="true">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <label data-signup-only>
+            <span>Full name</span>
+            <input name="name" type="text" autocomplete="name" maxlength="80" />
+          </label>
+          <label>
+            <span>Email address</span>
+            <input name="email" type="email" required autocomplete="email" maxlength="120" />
+          </label>
+          <label>
+            <span>Password</span>
+            <div class="pw-wrap">
+              <input name="password" type="password" required autocomplete="new-password" minlength="8" maxlength="128" />
+              <button type="button" class="pw-toggle" aria-label="Show password" data-toggle-pw>👁</button>
+            </div>
+            <small class="hint" data-signup-only>At least 8 characters, with letters and numbers.</small>
+          </label>
+          <div class="pw-strength" data-signup-only aria-hidden="true">
+            <span class="pw-bar"><span id="pwBar"></span></span>
+            <span class="pw-label" id="pwLabel">Strength</span>
+          </div>
+          <label class="check-row" data-signup-only>
+            <input type="checkbox" name="agree" required />
+            <span>I agree to the Terms &amp; Privacy Policy.</span>
+          </label>
+          <button type="submit" class="btn btn-primary auth-submit">
+            <span data-signup-text>Create account</span>
+            <span data-signin-text hidden>Sign in</span>
+          </button>
+          <p class="form-status" id="emailStatus" role="status" aria-live="polite"></p>
+          <p class="auth-link" data-signup-only><a href="#" data-recover>Forgot your password?</a></p>
+        </form>
+
+        <!-- ========== PHONE ========== -->
+        <form class="auth-form" id="phoneForm" novalidate hidden autocomplete="on">
+          <label data-signup-only>
+            <span>Full name</span>
+            <input name="name" type="text" autocomplete="name" maxlength="80" />
+          </label>
+          <label>
+            <span>Phone number</span>
+            <input name="phone" type="tel" required autocomplete="tel" maxlength="20" placeholder="+234 ..." />
+            <small class="hint">Include the country code, e.g. +234 for Nigeria.</small>
+          </label>
+
+          <button type="button" class="btn btn-primary auth-submit" id="sendOtpBtn">Send 6-digit code</button>
+
+          <div id="otpBox" hidden>
+            <label>
+              <span>Enter the 6-digit code</span>
+              <input name="otp" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" />
+            </label>
+            <button type="submit" class="btn btn-primary auth-submit">Verify &amp; continue</button>
+            <p class="hint" id="otpHint"></p>
+          </div>
+
+          <p class="form-status" id="phoneStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- ========== GOOGLE ========== -->
+        <div class="auth-form auth-google" id="googleForm" hidden>
+          <p class="google-blurb">Use your Google account — works on Android, iPhone, iPad, Mac, Windows, and the web.</p>
+          <button id="googleBtn" type="button" class="btn-google" aria-label="Continue with Google">
+            <svg viewBox="0 0 18 18" width="20" height="20" aria-hidden="true">
+              <path fill="#EA4335" d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46 1.08 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"/>
+              <path fill="#4285F4" d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+              <path fill="#FBBC05" d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9 9 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"/>
+            </svg>
+            Continue with Google
+          </button>
+          <div id="googleOneTap"></div>
+          <p class="hint google-hint">
+            <strong>Setup needed:</strong> Get a free OAuth Client ID at
+            <code>console.cloud.google.com</code> and paste it into
+            <code>account.js</code> as <code>GOOGLE_CLIENT_ID</code>.
+          </p>
+          <p class="form-status" id="googleStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <!-- ========== APPLE ID ========== -->
+        <div class="auth-form auth-apple" id="appleForm" hidden>
+          <p class="apple-blurb">Use your Apple ID for fast, private sign-in. Apple shares only what you allow.</p>
+          <button id="appleBtn" type="button" class="btn-apple" aria-label="Sign in with Apple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16.365 1.43c0 1.14-.41 2.21-1.23 3.04-.83.84-1.95 1.32-2.99 1.23-.13-1.13.4-2.27 1.16-3.06.83-.85 2.09-1.46 3.06-1.21zm3.39 17.45c-.61 1.4-1.36 2.79-2.55 4.02-1.04 1.07-2.31 2.4-3.92 2.4-1.55 0-1.95-.91-4.05-.9-2.1.01-2.55.92-4.1.91-1.6-.02-2.83-1.2-3.87-2.27C-1.04 19.95-2 14.1.6 10.46c1.36-1.91 3.78-3.07 6.04-3.07 1.71 0 3.32.96 4.05.96.74 0 2.71-1.18 4.6-1.01.79.03 3.02.32 4.46 2.43-3.93 2.16-3.27 7.81 1 8.91z"/>
+            </svg>
+            Sign in with Apple
+          </button>
+          <p class="hint apple-hint">
+            <strong>Setup needed:</strong> requires Apple Developer credentials —
+            a Services ID, return URL, and private key. Add them to
+            <code>account.js</code> in the <code>APPLE_CLIENT_ID</code> and
+            <code>APPLE_REDIRECT_URI</code> constants.
+          </p>
+          <p class="form-status" id="appleStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <p class="auth-mode-toggle">
+          <span data-signup-only>Already have an account? <a href="#" data-mode-link="signin">Sign in</a></span>
+          <span data-signin-only hidden>New here? <a href="#" data-mode-link="signup">Create an account</a></span>
+        </p>
+
+        <p class="security-note">
+          <span aria-hidden="true">🛡</span>
+          Your password is hashed in your browser before it's stored.
+          We never see it in plaintext. Always check the URL bar shows
+          <code>goldenpalm.gmakibor.com</code> before entering credentials.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> GoldenPalm · GM Akibor Limited</span>
+      <span class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#payments">Payments</a>
+        <a href="index.html#contact">Contact</a>
+      </span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="database/db.js"></script>
+  <script src="services.js"></script>
+  <script src="account.js"></script>
+
+  <!-- Invisible reCAPTCHA target for Firebase phone auth -->
+  <div id="recaptcha-container" aria-hidden="true"></div>
+</body>
+</html>

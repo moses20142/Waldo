@@ -1,0 +1,63 @@
+# ====================================================================
+# GoldenPalm — Apache config
+# Portable security headers + caching. Works on any Apache shared host.
+# Drop this file alongside index.html and it activates automatically.
+# ====================================================================
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://*.supabase.co; font-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(self)"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set X-DNS-Prefetch-Control "off"
+
+  # Don't leak server software
+  Header unset Server
+  Header unset X-Powered-By
+</IfModule>
+
+# Caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType text/html                     "access plus 1 hour"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Block access to dotfiles and sensitive folders
+<FilesMatch "^\.(?!well-known)">
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(sql|env|md|log)$">
+  Require all denied
+</FilesMatch>
+
+# Custom error pages (optional — uncomment when you create them)
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+
+# Disable directory listing
+Options -Indexes

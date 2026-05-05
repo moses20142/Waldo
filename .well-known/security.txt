@@ -1,0 +1,11 @@
+Contact: mailto:akibormoses@gmail.com
+Preferred-Languages: en
+Canonical: https://goldenpalm.gmakibor.com/.well-known/security.txt
+Policy: https://goldenpalm.gmakibor.com/security
+Expires: 2027-01-01T00:00:00.000Z
+
+# Responsible Disclosure
+# If you discover a security vulnerability in goldenpalm.gmakibor.com,
+# please email the contact above. We will respond within 72 hours.
+# Please do not exploit the issue beyond what is necessary to demonstrate it,
+# and do not disclose publicly until we have had reasonable time to remediate.
